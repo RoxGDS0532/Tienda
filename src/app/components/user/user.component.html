@@ -1,1 +1,46 @@
-<p>user works!</p>
+<div class="container">
+    <h2>Pantalla de Autocobro</h2>
+  
+    <input type="text" placeholder="Escanear código de barras" #codigoBarras>
+    <button (click)="agregarProducto(codigoBarras.value)">Agregar Producto</button>
+  
+    <h3>Carrito de Compras</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Producto</th>
+          <th>Cantidad</th>
+          <th>Precio Unitario</th>
+          <th>Subtotal</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of carrito">
+          <td>{{ item.nombre }}</td>
+          <td>
+            <input type="number" [(ngModel)]="item.cantidad" (change)="modificarCantidad(item.codigo, item.cantidad)">
+          </td>
+          <td>{{ item.precio | currency }}</td>
+          <td>{{ item.precio * item.cantidad | currency }}</td>
+          <td>
+            <button (click)="eliminarProducto(item.codigo)">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h4>Total: {{ total | currency }}</h4>
+  
+    <h3>Método de Pago</h3>
+    <select [(ngModel)]="metodoSeleccionado">
+      <option *ngFor="let metodo of metodosDePago" [value]="metodo">{{ metodo }}</option>
+    </select>
+  
+    <button (click)="procesarPago()">Procesar Pago</button>
+
+    <div *ngIf="facturaGenerada">
+      <h3>Factura generada</h3>
+      <p>Gracias por su compra</p>
+    </div>
+  </div>
+  
