@@ -18,9 +18,9 @@
       <tbody>
         <tr *ngFor="let item of carrito">
           <td>{{ item.nombre }}</td>
-          <td>
+          <!-- <td>
             <input type="number" [(ngModel)]="item.cantidad" (change)="modificarCantidad(item.codigo, item.cantidad)">
-          </td>
+          </td> -->
           <td>{{ item.precio | currency }}</td>
           <td>{{ item.precio * item.cantidad | currency }}</td>
           <td>
@@ -32,10 +32,10 @@
     <h4>Total: {{ total | currency }}</h4>
   
     <h3>Método de Pago</h3>
-    <select [(ngModel)]="metodoSeleccionado">
+    <!-- <select [(ngModel)]="metodoSeleccionado">
       <option *ngFor="let metodo of metodosDePago" [value]="metodo">{{ metodo }}</option>
     </select>
-  
+   -->
     <button (click)="procesarPago()">Procesar Pago</button>
 
     <div *ngIf="facturaGenerada">

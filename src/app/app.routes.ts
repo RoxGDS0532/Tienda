@@ -4,5 +4,5 @@ import { provideRouter } from '@angular/router';
 import { bootstrapApplication } from '@angular/platform-browser';
 
 export const routes: Routes = [
-    {path: '', component: UserComponent}
+    {path: '', component: UserComponent},
 ];

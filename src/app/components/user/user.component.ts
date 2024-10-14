@@ -13,6 +13,10 @@ interface Producto {
   standalone: true,
   imports: [CommonModule],
   templateUrl: './user.component.html',
+  template: `
+  <h1>Bienvenido al Componente de Usuario</h1>
+  <a routerLink="/autocobro">Ir al Autocobro</a>
+`,
   styleUrl: './user.component.css'
 })
 
